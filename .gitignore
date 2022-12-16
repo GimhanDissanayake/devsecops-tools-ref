@@ -1,0 +1,5 @@
+# Mac os cache
+.DS_Store
+
+# node modules
+node_modules/
