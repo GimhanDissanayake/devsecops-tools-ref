@@ -35,12 +35,34 @@ SELECT User, Host FROM mysql.user;
 ```sql
 CREATE USER 'someuser'@'localhost' IDENTIFIED BY 'somepassword';
 ```
+- someuser@% : User myuser, connecting from any host.
+- someuser@localhost : User myuser, connecting from localhost only.
 
 ## Grant All Priveleges On All Databases
 
 ```sql
 GRANT ALL PRIVILEGES ON * . * TO 'someuser'@'localhost';
 FLUSH PRIVILEGES;
+```
+
+### Commonly use permissions
+```
+ALL - Allows complete access to a specific database. If a database is not specified, it allows complete access to the entirety of MySQL.
+CREATE - Allow a user to create databases and tables.
+DELETE - Allow a user to delete rows from a table.
+DROP - Allow a user to drop databases and tables.
+EXECUTE - Allow a user to execute stored routines.
+GRANT OPTION - Allow a user to grant or remove another user's privileges.
+INSERT - Allow a user to insert rows from a table.
+SELECT - Allow a user to select data from a database.
+SHOW DATABASES- Allow a user to view a list of all databases.
+UPDATE - Allow a user to update rows in a table.
+```
+
+### Granting access to specific table
+```
+GRANT SELECT, SHOW VIEW ON mydatabase.`Activity` to 'myuser'@`myhost`;
+GRANT SELECT, SHOW VIEW ON mydatabase.`Marketing` to 'myuser'@`myhost`;
 ```
 
 ## Show Grants
@@ -107,6 +129,9 @@ id INT AUTO_INCREMENT,
    PRIMARY KEY(id)
 );
 ```
+
+- PRIMARY KEY: Uniquely identify rows in a table
+- FOREIGN KEY: Make the relationship between 2 tables, Data Validate 
 
 ## Delete / Drop Table
 
