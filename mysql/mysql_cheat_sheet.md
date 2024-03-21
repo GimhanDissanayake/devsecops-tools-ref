@@ -39,7 +39,7 @@ CREATE USER 'someuser'@'localhost' IDENTIFIED BY 'somepassword';
 ## Grant All Priveleges On All Databases
 
 ```sql
-GRANT ALL PRIVILEGES ON * . * TO 'someuser'@'localhost';
+GRANT ALL PRIVILEGES ON *.* TO 'someuser'@'10.1.%' IDENTIFIED BY 'pass****' WITH GRANT OPTION;
 FLUSH PRIVILEGES;
 ```
 
