@@ -63,3 +63,8 @@ sudo openssl req -out dev.dev-api.net-assured-platform.com.csr -newkey rsa:2048 
 ```
 openssl req -noout -text -in dev.dev-api.net-assured-platform.com.csr
 ```
+# Commands:
+```
+# check the certificate’s SAN field to confirm whether it’s a wildcard or SAN certificate
+openssl s_client -connect www.mobilsmiles.co.nz:443 -showcerts | openssl x509 -noout -text | grep -A1 "Subject Alternative Name"
+```
