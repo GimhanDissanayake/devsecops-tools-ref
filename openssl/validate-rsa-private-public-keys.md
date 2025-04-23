@@ -4,6 +4,9 @@
 # Get the modulus from private key
 openssl rsa -in private.pem -modulus -noout | md5sum
 
+# If you have a public key in SSH format (starts with "ssh-rsa"), you'll need to convert it first:
+ssh-keygen -f public.pub -e -m PKCS8 > public.pem
+
 # Get the modulus from public key
 openssl rsa -in public.pem -pubin -modulus -noout | md5sum
 ```
